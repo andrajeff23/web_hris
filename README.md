@@ -1,38 +1,29 @@
-# Dewakoding Presensi
-## Langkah-langkah Instalasi
+## Langkah-langkah Instalasi ##
 
-1. **Extract File Zip**
-    - Download file zip dari sumber yang disediakan.
-    - Extract file zip ke dalam direktori proyek Anda.
-
-2. **Buka File Zip dengan Text Editor**
-    - Gunakan text editor pilihan Anda (contoh: VSCode, Sublime Text, atau Notepad++).
-    - Buka direktori proyek yang telah diextract.
-
-3. **Siapkan Database**
-    - Buat database baru di server database Anda (contoh: MySQL, PostgreSQL, atau SQLite).
-
-4. **Jalankan `cp .env.example .env`, lalu Masukkan Konfigurasi Database**
+1. extract atau git clone file
+2. Jalankan `cp .env.example .env`, lalu Masukkan Konfigurasi Database**
     - Salin file `.env.example` menjadi `.env`.
     - Buka file `.env` dan masukkan informasi konfigurasi database Anda.
 
-5. **Jalankan `composer update`**
+3. Jalankan `composer update`
     - Jalankan perintah `composer update` untuk menginstal semua dependensi yang diperlukan.
 
-6. **Jalankan `php artisan key:generate`**
+4. Jalankan `php artisan key:generate`
     - Jalankan perintah `php artisan key:generate` untuk menghasilkan kunci aplikasi.
 
-7. **Jalankan `php artisan migrate`**
+5. Jalankan `php artisan migrate`
     - Jalankan perintah `php artisan migrate` untuk membuat tabel-tabel di database.
 
-8. **Jalankan `php artisan make:filament-user`, lalu Masukkan Informasi User**
+6. Jalankan `php artisan make:filament-user`, lalu Masukkan Informasi User
     - Jalankan perintah `php artisan make:filament-user` dan masukkan informasi pengguna yang diminta.
+    (untuk mengaktifkan user Super Admin)
+7. Setelah membuat filament user ikuti langkah install fillament sebagai berikut :
+    - install library :  composer require bezhansalleh/filament-shield
+    - php artisan shield:setup
+    - php artisan shield:install (jika muncul permintaan admin, ketik admin untuk melanjutkan pembuatan role)
+    - php artisan shield:generate --all (untuk generate policy dari semua model) -> ini yang sering lupa, menyebabkan menu2 nya ilang
+    - php artisan shield:super-admin (untuk assign role super_admin ke user tertentu -> masukkan email super user yang telah dibuat sebelumnya)
 
-9. **Jalankan `php artisan serve`, Buka Web di URL `/admin`**
+8. Jalankan `php artisan serve`
     - Jalankan perintah `php artisan serve`.
-    - Buka browser dan akses `http://localhost:8000/admin`.
-
-10. **Project Siap Digunakan**
-    - Proyek Laravel Anda sekarang siap digunakan.
-
-Project siap digunakan
+    - Buka browser dan akses `http://127.0.0.1:8000/`.
