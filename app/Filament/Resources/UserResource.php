@@ -44,19 +44,20 @@ class UserResource extends Resource
                                     ->searchable(),
                                 Forms\Components\FileUpload::make('image')
                             ])
-                        ]),
+                    ]),
                 Forms\Components\Group::make()
                     ->schema([
                         Forms\Components\Section::make()
                             ->schema([
                                 Forms\Components\DateTimePicker::make('email_verified_at'),
                                 Forms\Components\TextInput::make('password')
+                                    ->revealable()
                                     ->password()
                                     ->maxLength(255)
-                                    ->dehydrateStateUsing(fn ($state) => Hash::make($state))
-                                    ->dehydrated(fn ($state) => filled($state))
-                                    ->required(fn (string $context): bool => $context === 'create'),
-                                
+                                    ->dehydrateStateUsing(fn($state) => Hash::make($state))
+                                    ->dehydrated(fn($state) => filled($state))
+                                    ->required(fn(string $context): bool => $context === 'create'),
+
                             ])
                     ])
             ]);
@@ -67,7 +68,7 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
-                        ->circular(),
+                    ->circular(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')

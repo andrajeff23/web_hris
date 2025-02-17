@@ -28,4 +28,5 @@
     - Jalankan perintah `php artisan serve`.
     - Buka browser dan akses `http://127.0.0.1:8000/`.
 
-9. Jangan Lupa Jalankan php artisan icons:cache untuk meringankan browser saat membuka web filament
+9. Jangan Lupa Jalankan 'php artisan icons:cache' untuk meringankan browser saat membuka web filament
+10. Jalankan 'php artisan storage:link' untuk menyimpan data foto di server

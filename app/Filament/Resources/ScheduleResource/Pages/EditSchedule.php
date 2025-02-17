@@ -8,6 +8,10 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditSchedule extends EditRecord
 {
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
     protected static string $resource = ScheduleResource::class;
 
     protected function getHeaderActions(): array

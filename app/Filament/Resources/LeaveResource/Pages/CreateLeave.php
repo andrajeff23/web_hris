@@ -9,6 +9,10 @@ use Auth;
 
 class CreateLeave extends CreateRecord
 {
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
     protected static string $resource = LeaveResource::class;
 
     protected function mutateFormDataBeforeCreate(array $data): array
