@@ -27,3 +27,5 @@
 8. Jalankan `php artisan serve`
     - Jalankan perintah `php artisan serve`.
     - Buka browser dan akses `http://127.0.0.1:8000/`.
+
+9. Jangan Lupa Jalankan php artisan icons:cache untuk meringankan browser saat membuka web filament
