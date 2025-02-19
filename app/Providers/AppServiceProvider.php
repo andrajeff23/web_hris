@@ -10,6 +10,7 @@ use Illuminate\Routing\Route;
 use Dedoc\Scramble\Support\Generator\OpenApi;
 use Dedoc\Scramble\Support\Generator\SecurityScheme;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,22 +27,27 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        //package untuk aktifkan CSS di NGROK
+        // if (config('app.env') === 'local') {
+        //     URL::forceScheme('https');
+        // }
+
         Scramble::routes(function (Route $route) {
             return Str::startsWith($route->uri, 'api/');
         });
 
         Gate::define('viewApiDocs', function ($user) {
             Log::info('viewApiDocs gate called for user: ' . $user->email);
-            
+
             $allowed = in_array($user->email, [
-                'septiawanajipradana@gmail.com',
-                
+                'andrajefry23@gmail.com',
+
             ]);
 
             dd($allowed);
-            
+
             Log::info('Access ' . ($allowed ? 'granted' : 'denied') . ' for ' . $user->email);
-            
+
             return $allowed;
         });
 

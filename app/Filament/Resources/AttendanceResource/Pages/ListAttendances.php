@@ -16,11 +16,12 @@ class ListAttendances extends ListRecords
         return [
             Action::make('Download Data')
                 ->url(route('attendance-export'))
+                ->openUrlInNewTab()
                 ->color('primary'),
             Action::make('Tambah Presensi')
                 ->url(route('presensi'))
                 ->color('success'),
-           
+
 
             Actions\CreateAction::make(),
         ];
